@@ -355,7 +355,9 @@
     for (var rule in fabric.cssRules) {
       if (elementMatchesRule(element, rule.split(' '))) {
         for (var property in fabric.cssRules[rule]) {
-          styles[property] = fabric.cssRules[rule][property];
+          var attr = normalizeAttr(property);
+          var value = normalizeValue(attr, fabric.cssRules[rule][property]);
+          styles[attr] = value;
         }
       }
     }
