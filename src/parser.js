@@ -778,6 +778,11 @@
       // replace commas with whitespace and remove bookending whitespace
       points = points.replace(/,/g, ' ').trim();
 
+      // remove possible whitespace around commas
+      if (asPairs) {
+        points = points.replace(/\s*,\s*/g, ',')
+      }
+      
       points = points.split(/\s+/);
       var parsedPoints = [ ], i, len;
 
